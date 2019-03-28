@@ -12,8 +12,7 @@ March 2019
 - Setup
 - Storage
 - Build or discover images
-- Services
-- MyBoilerplate
+- Compose
 - Swarm
 - gDoc2 Dev environment
 
@@ -77,7 +76,7 @@ Status: Downloaded newer image for nginx:latest
 
 - A recipe for building a docker image
 - The Dockerfile is a textfile with commands similar to a batch file
-- `docker build` will execute the commands, creates (read-only) layers and resulting (writable) image
+- `$ docker build .` will execute the commands, creates (read-only) layers and resulting (writable) image
 
 ```bash
 FROM ubuntu:18.04
@@ -95,3 +94,55 @@ Each layer is the "delta" on top of the previous layer.
 [https://hub.docker.com/](https://hub.docker.com/)
 
 ![](assets/docker-hub.png "nginx results from Docker hub")
+
+---
+
+### Docker-compose
+
+Compose is a tool for defining and running multi-container Docker applications. A YAML file configures the required services.
+
+```yaml
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "5000:5000"
+  redis:
+    image: "redis:alpine"
+```
+
+```bash
+$ docker-compose up
+Creating network "composetest_default" with the default driver
+Creating composetest_web_1 ...
+Creating composetest_redis_1 ...
+Creating composetest_web_1
+Creating composetest_redis_1 ... done
+Attaching to composetest_web_1, composetest_redis_1
+```
+
+---
+
+### Docker Swarm
+
+| | |
+|----------|-----------|
+|Cluster management integrated with Docker Engine<br>Scaling<br>Load balancing<br>Self-Healing<br>Secure by default<br>Rolling updates<br> | ![](assets/swarm.png "Docker swarm") |
+
+---
+
+### gDoc2 Dev environment
+
+- 3 custom made images
+  - Seq
+  - MSSQL
+  - Conference Portal
+- Based on the (same) latest Windows Server Core
+- Setting default values, attaching DBs, installing certificate
+- Published in a (secure) container registry (ungtt.azurecr.io)
+- One simple command to run:
+
+```bash
+$ docker-compose up
+```
