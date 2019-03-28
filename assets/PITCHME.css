@@ -13,3 +13,7 @@
 .reveal pre {
     font-size: 0.4em;
 }
+
+.reveal section table td {
+    width: 50%;
+}
