@@ -126,9 +126,14 @@ Attaching to composetest_web_1, composetest_redis_1
 
 ### Docker Swarm
 
-| | |
-|----------|-----------|
-|Cluster management integrated with Docker Engine<br>Scaling<br>Load balancing<br>Self-Healing<br>Secure by default<br>Rolling updates<br> | ![](assets/swarm.png "Docker swarm") |
+- Cluster management integrated with Docker Engine
+- Scaling
+- Load balancing
+- Self-Healing
+- Secure by default
+- Rolling updates
+
+![](assets/swarm.png "Docker swarm")
 
 ---
 
