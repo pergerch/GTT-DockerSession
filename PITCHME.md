@@ -126,7 +126,7 @@ Attaching to composetest_web_1, composetest_redis_1
 
 ### Docker Swarm
 
-@snap[west-sidebar]
+@snap[west]
 - Cluster management integrated with Docker Engine
 - Scaling
 - Load balancing
@@ -135,7 +135,7 @@ Attaching to composetest_web_1, composetest_redis_1
 - Rolling updates
 @snapend
 
-@snap[east-sidebar]
+@snap[east]
 ![](assets/swarm.png "Docker swarm")
 @snapend
 
