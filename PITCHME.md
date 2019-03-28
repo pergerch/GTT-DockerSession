@@ -126,14 +126,18 @@ Attaching to composetest_web_1, composetest_redis_1
 
 ### Docker Swarm
 
+@snap[west-sidebar]
 - Cluster management integrated with Docker Engine
 - Scaling
 - Load balancing
 - Self-Healing
 - Secure by default
 - Rolling updates
+@snapend
 
+@snap[east-sidebar]
 ![](assets/swarm.png "Docker swarm")
+@snapend
 
 ---
 
