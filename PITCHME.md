@@ -151,9 +151,11 @@ Attaching to composetest_web_1, composetest_redis_1
 $ docker-compose up
 ```
 
+---
+
 ### Dockerize ASP.NET Core application (bonus)
 
-1) Project right-click - Add - Container Orchestrator support
+1) Right-click on project - Add - Container Orchestrator support
 2) Select Windows or Linux
 3) Dockerfile and docker-compose are created (incl. development setup)
 4) F5 to run
@@ -161,7 +163,7 @@ $ docker-compose up
 Example of practical use can be found here: 
 [https://github.com/pergerch/MyBoilerplate](https://github.com/pergerch/MyBoilerplate)
 
-Showcases ENV variables / options pattern, health checks, shared volume
+_Showcases ENV variables / options pattern, health checks, shared volume_
 
 ---
 
