@@ -111,7 +111,9 @@ Each layer is the "delta" on top of the previous layer.
 
 ### Docker-compose / Stacks
 
-Compose is a tool for defining and running multi-container Docker applications. A YAML file configures the required services. _Side note: This is very similar to stacks in docker swarm_
+- Compose is a tool for defining and running multi-container Docker applications. 
+- A YAML file configures the required services.
+- _Side note: This is very similar to stacks in docker swarm_
 
 ```yaml
 version: '3'
@@ -160,10 +162,11 @@ $ docker-compose up
 - Dockerfile and docker-compose are created (incl. development profile)
 - F5 to run
 
-Example of practical use can be found here: 
-[https://github.com/pergerch/MyBoilerplate](https://github.com/pergerch/MyBoilerplate)
+<br>
 
-_Showcases ENV variables / options pattern, health checks, shared volume_
+- Example of practical use can be found here: 
+[https://github.com/pergerch/MyBoilerplate](https://github.com/pergerch/MyBoilerplate)
+- _Showcases ENV variables / options pattern, health checks, shared volume_
 
 ---
 
