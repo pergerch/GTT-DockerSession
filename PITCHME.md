@@ -157,7 +157,7 @@ $ docker-compose up
 
 1) Right-click on project - Add - Container Orchestrator support
 2) Select Windows or Linux
-3) Dockerfile and docker-compose are created (incl. development setup)
+3) Dockerfile and docker-compose are created (incl. development profile)
 4) F5 to run
 
 Example of practical use can be found here: 
