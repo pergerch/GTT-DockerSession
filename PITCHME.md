@@ -13,8 +13,8 @@ March 2019
 - Storage
 - Build or discover images
 - Compose
-- Swarm
 - gDoc2 Dev environment
+- Swarm
 
 ---
 
@@ -25,7 +25,7 @@ March 2019
 - Container images define the runtime environment
 - Containerized software will always run the same, regardless of the infrastructure
 - Isolated but lightweight since they don't require an OS per application
-- Available on Win & Linux, virtualizes Win & Linux (doesn't have to match)
+- Available on Win, Mac & Linux, virtualizes Win & Linux (doesn't have to match) - _side note: hybrid mode is in the making_
 
 ---
 
@@ -35,9 +35,20 @@ March 2019
 
 ---
 
-### Terminology
+### Terminology and Layers
 
 ![](assets/terminology.png "Terminology")
+
+---
+
+### Setup
+
+- On Windows install [Docker Desktop](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+- You will need to activate the Hyper-V feature
+- Share the C / D drive, this can be [a bit challenging](https://tomssl.com/2018/01/11/sharing-your-c-drive-with-docker-for-windows-when-using-azure-active-directory-azuread-aad/) in the corporate environment
+- Select to run windows or linux containers
+- _Bonus:_ Modify the ports of gDoc2 API and website to not use any blocked ones (`netsh interface ipv4 show excludedportrange tcp
+`)
 
 ---
 
@@ -66,9 +77,10 @@ Status: Downloaded newer image for nginx:latest
 
 ![](assets/docker-storage.png "Docker Storage")
 
+- Container-internal
+- Tmpfs - in the host system’s memory only (available on linux)
 - Volumes - stored in a part of the host filesystem BUT managed by Docker
 - Bind mount – "shared" folder from the host. Non-Docker processes on the host can modify them at any time
-- Tmpfs - in the host system’s memory only
 
 ---
 
@@ -76,7 +88,7 @@ Status: Downloaded newer image for nginx:latest
 
 - A recipe for building a docker image
 - The Dockerfile is a textfile with commands similar to a batch file
-- `$ docker build .` will execute the commands, creates (read-only) layers and resulting (writable) image
+- `docker build .` will execute the commands, creates (read-only) layers and resulting (writable) image
 
 ```bash
 FROM ubuntu:18.04
@@ -97,9 +109,9 @@ Each layer is the "delta" on top of the previous layer.
 
 ---
 
-### Docker-compose
+### Docker-compose / Stacks
 
-Compose is a tool for defining and running multi-container Docker applications. A YAML file configures the required services.
+Compose is a tool for defining and running multi-container Docker applications. A YAML file configures the required services. _Side note: This is very similar to stacks in docker swarm_
 
 ```yaml
 version: '3'
@@ -124,26 +136,13 @@ Attaching to composetest_web_1, composetest_redis_1
 
 ---
 
-### Docker Swarm
-
-- Cluster management integrated with Docker Engine
-- Scaling
-- Load balancing
-- Self-Healing
-- Secure by default
-- Rolling updates
-
-![](assets/swarm.png "Docker swarm")
-
----
-
 ### gDoc2 Dev environment
 
 - 3 custom made images
-  - Seq
   - MSSQL
   - Conference Portal
-- Based on the (same) latest Windows Server Core
+  - Seq
+- Based on the (same) latest Windows Server Core version
 - Setting default values, attaching DBs, installing certificate
 - Published in a (secure) container registry (ungtt.azurecr.io)
 - One simple command to run:
@@ -151,3 +150,33 @@ Attaching to composetest_web_1, composetest_redis_1
 ```bash
 $ docker-compose up
 ```
+
+### Dockerize ASP.NET Core application (bonus)
+
+1) Project right-click - Add - Container Orchestrator support
+2) Select Windows or Linux
+3) Dockerfile and docker-compose are created (incl. development setup)
+4) F5 to run
+
+Example of practical use can be found here: 
+[https://github.com/pergerch/MyBoilerplate](https://github.com/pergerch/MyBoilerplate)
+
+Showcases ENV variables / options pattern, health checks, shared volume
+
+---
+
+### Docker Swarm
+
+- Cluster management integrated with Docker Engine
+- Scaling & self-healing
+- Load balancing through multi-hostt networking
+- Secure by default (TLS communication enforced)
+- Rolling updates
+- Hybrid swarm setup possible (mixing win and linux nodes)
+- Powerful management & monitoring tools available ([Portainer](https://www.portainer.io/), [Traefik](https://traefik.io/), [Swarmstack](https://github.com/swarmstack/swarmstack), etc.)
+
+![](assets/swarm.png "Docker swarm")
+
+---
+
+### Discussion and Questions?
