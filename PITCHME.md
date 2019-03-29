@@ -155,10 +155,10 @@ $ docker-compose up
 
 ### Dockerize ASP.NET Core application (bonus)
 
-1) Right-click on project - Add - Container Orchestrator support
-2) Select Windows or Linux
-3) Dockerfile and docker-compose are created (incl. development profile)
-4) F5 to run
+- Right-click on project - Add - Container Orchestrator support
+- Select Windows or Linux
+- Dockerfile and docker-compose are created (incl. development profile)
+- F5 to run
 
 Example of practical use can be found here: 
 [https://github.com/pergerch/MyBoilerplate](https://github.com/pergerch/MyBoilerplate)
