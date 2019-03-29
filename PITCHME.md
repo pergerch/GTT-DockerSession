@@ -179,6 +179,7 @@ $ docker-compose up
 - Rolling updates
 - Hybrid swarm setup possible (mixing win and linux nodes)
 - Powerful management & monitoring tools available ([Portainer](https://www.portainer.io/), [Traefik](https://traefik.io/), [Swarmstack](https://github.com/swarmstack/swarmstack), etc.)
+- Alternatives: Kubernetes, Mesos, and _Service Fabric (kind of)_
 
 ![](assets/swarm.png "Docker swarm")
 
